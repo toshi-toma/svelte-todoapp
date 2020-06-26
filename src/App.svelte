@@ -5,7 +5,7 @@
 
   let todos = [];
   const addTodo = todo => {
-    todos = [...todos, todo];
+    todos = [...todos, { content: todo, isDone: false }];
   };
 </script>
 

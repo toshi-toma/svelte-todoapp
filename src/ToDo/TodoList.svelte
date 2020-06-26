@@ -21,7 +21,7 @@
   <ul class="todo-list">
     {#each todos as todo}
       <li class="todo-item">
-        <div>{todo}</div>
+        <div>{todo.content}</div>
       </li>
     {/each}
   </ul>
