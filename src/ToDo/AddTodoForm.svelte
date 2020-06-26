@@ -5,6 +5,7 @@
   const handeClick = e => {
     e.preventDefault();
     addTodo(input);
+    input = "";
   };
 </script>
 
