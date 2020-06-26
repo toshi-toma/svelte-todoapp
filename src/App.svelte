@@ -5,7 +5,7 @@
   import TodoList from "./ToDo/TodoList.svelte";
 
   let todos = [];
-  let filter = "active"; // active | all
+  let filter = "active"; // active | all | completed
   const addTodo = todo => {
     todos = [...todos, { content: todo, isDone: false }];
   };
@@ -13,10 +13,14 @@
   $: filteredTodos = todos.filter(todo => {
     if (filter === "active") {
       return !todo.isDone;
-    } else if (filter === "all") {
+    }
+    if (filter === "all") {
       return true;
     }
-    return true; // fallback
+    if (filter === "completed") {
+      return todo.isDone;
+    }
+    return false; // fallback
   });
 </script>
 
