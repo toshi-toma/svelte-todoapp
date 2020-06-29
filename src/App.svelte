@@ -1,16 +1,19 @@
-<script>
+<script lang="typescript">
   import Header from "./Header.svelte";
   import AddTodoForm from "./ToDo/AddTodoForm.svelte";
   import Filter from "./Filter.svelte";
   import TodoList from "./ToDo/TodoList.svelte";
 
+  type Filters = "active" | "all" | "completed";
+
   let todos = [];
-  let filter = "active"; // active | all | completed
-  const addTodo = todo => {
+  let filter: Filters = "all";
+  const addTodo = (todo) => {
     todos = [...todos, { content: todo, isDone: false }];
   };
-  const updateFilter = nextFilter => (filter = nextFilter);
-  $: filteredTodos = todos.filter(todo => {
+  const updateFilter = (nextFilter) => (filter = nextFilter);
+
+  $: filteredTodos = todos.filter((todo) => {
     if (filter === "active") {
       return !todo.isDone;
     }
