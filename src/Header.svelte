@@ -1,3 +1,7 @@
+<script>
+  import AddTodoForm from "./ToDo/AddTodoForm.svelte";
+</script>
+
 <style>
   header {
     display: flex;
@@ -21,10 +25,7 @@
 
 <header>
   <a href="https://svelte.dev/" class="header-link">
-    <img
-      src="https://svelte.dev/svelte-logo-horizontal.svg"
-      alt=""
-      class="header-img" />
+    <img src="/svelte-logo.svg" alt="" class="header-img" />
   </a>
   <h1 class="header-title">ToDo App</h1>
 </header>
