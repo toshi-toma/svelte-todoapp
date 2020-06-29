@@ -43,6 +43,9 @@
 <Header />
 <main>
   <AddTodoForm {addTodo} />
-  <Filter bind:selectFilter={filter} {updateFilter} />
+  <Filter
+    bind:selectFilter={filter}
+    {updateFilter}
+    bind:todoCount={filteredTodos.length} />
   <TodoList bind:todos={filteredTodos} {deleteTodo} />
 </main>
