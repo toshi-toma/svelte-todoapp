@@ -18,7 +18,7 @@
 <div class="wrapper">
   <ul class="todo-list">
     {#each todos as todo}
-      <TodoItem {todo} {deleteTodo} />
+      <TodoItem bind:todo {deleteTodo} />
     {/each}
   </ul>
 </div>
