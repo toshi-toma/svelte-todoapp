@@ -5,12 +5,19 @@
   import TodoList from "./ToDo/TodoList.svelte";
 
   let todos = [];
+  let todoId = 0;
   let filter = "active"; // active | all | completed
-  const addTodo = todo => {
-    todos = [...todos, { content: todo, isDone: false }];
+
+  const addTodo = (todo) => {
+    const id = todoId + 1;
+    todoId = id;
+    todos = [...todos, { content: todo, isDone: false, id }];
   };
-  const updateFilter = nextFilter => (filter = nextFilter);
-  $: filteredTodos = todos.filter(todo => {
+  const deleteTodo = (id) => {
+    todos = todos.filter((todo) => todo.id !== id);
+  };
+  const updateFilter = (nextFilter) => (filter = nextFilter);
+  $: filteredTodos = todos.filter((todo) => {
     if (filter === "active") {
       return !todo.isDone;
     }
@@ -37,5 +44,5 @@
 <main>
   <AddTodoForm {addTodo} />
   <Filter bind:selectFilter={filter} {updateFilter} />
-  <TodoList bind:todos={filteredTodos} />
+  <TodoList bind:todos={filteredTodos} {deleteTodo} />
 </main>
