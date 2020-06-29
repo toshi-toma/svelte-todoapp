@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script>
   import Input from "./Input.svelte";
   let input = "";
   export let addTodo;

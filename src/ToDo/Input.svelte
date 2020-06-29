@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script>
   export let value;
 </script>
 

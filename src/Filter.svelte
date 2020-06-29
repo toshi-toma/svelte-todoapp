@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script>
   export let selectFilter;
   export let updateFilter;
   const handleAllFilterSelect = () => updateFilter("all");
